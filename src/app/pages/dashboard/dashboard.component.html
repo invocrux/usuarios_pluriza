@@ -1,1 +1,28 @@
-<p>dashboard works!</p>
+<app-header></app-header>
+
+<div class="table-responsive">
+  <table class="table table-striped table-bordered table-hover table-sm">
+    <thead>
+      <tr>
+        <th *ngFor="let item of headeTb">{{ item }}</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of listaUsers; let i = index">
+        <td>{{ i + 1 }}</td>
+        <td>{{ item.name }}</td>
+        <td>{{ item.email }}</td>
+        <td>{{ item.address.city }}</td>
+        <td>{{ item.phone }}</td>
+        <td>{{ item.username }}</td>
+        <td>{{ item.website }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="container">
+  <a (click)="getUsuarios()" class="btn">Ver más usuarios</a>
+</div>
+
+<app-footer></app-footer>

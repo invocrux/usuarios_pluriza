@@ -1,10 +1,6 @@
 <body>
   <div class="login-container">
-    <form
-      class="login-form"
-      [formGroup]="fbLogin"
-      (ngSubmit)="onLogin(fbLogin.value)"
-    >
+    <form class="login-form" [formGroup]="fbLogin" (ngSubmit)="onLogin()">
       <h2>Login</h2>
       <div class="input-group">
         <label for="username">Username</label>

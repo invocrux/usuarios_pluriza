@@ -8,11 +8,10 @@ import { IResponse } from '../models/response.interface';
   providedIn: 'root'
 })
 export class ApiService {
-  URL: string = 'http://solodata.es/';
+  URL: string = 'https://jsonplaceholder.typicode.com/users';
   constructor(private readonly http: HttpClient) { }
 
-  login(form: ILogin | Partial<{ usuario: string; password: string; }>): Observable<IResponse> {
-    let url = this.URL + 'auth';
-    return this.http.post<IResponse>(url, form)
+  login(): Observable<IResponse[]> {
+    return this.http.get<IResponse[]>(this.URL)
   }
 }

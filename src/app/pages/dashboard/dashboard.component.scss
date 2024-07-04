@@ -1,0 +1,92 @@
+.table-responsive {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    height: 60vh;
+    padding-top: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+
+// Estilos base de la tabla
+.table {
+    margin-bottom: 1rem;
+    color: #212529;
+    border-collapse: collapse;
+
+    th,
+    td {
+        padding: 0.75rem;
+        vertical-align: top;
+        border-top: 1px solid #dee2e6;
+        min-width: 100px; // Ancho mínimo
+        max-width: 200px; // Ancho máximo
+        overflow: hidden; // Ocultar contenido que exceda el ancho máximo
+        text-overflow: ellipsis; // Añadir puntos suspensivos al texto que se corte
+    }
+
+    thead th {
+        vertical-align: bottom;
+        border-bottom: 2px solid #dee2e6;
+    }
+
+    tbody+tbody {
+        border-top: 2px solid #dee2e6;
+    }
+}
+
+// Tabla rayada
+.table-striped tbody tr:nth-of-type(odd) {
+    background-color: rgba(0, 0, 0, 0.05);
+}
+
+// Bordes
+.table-bordered {
+    border: 1px solid #dee2e6;
+
+    th,
+    td {
+        border: 1px solid #dee2e6;
+    }
+}
+
+// Hover
+.table-hover tbody tr:hover {
+    background-color: rgba(0, 0, 0, 0.075);
+}
+
+// Tamaño pequeño
+.table-sm th,
+.table-sm td {
+    padding: 0.3rem;
+}
+
+.btn {
+    display: inline-block;
+    font-weight: 400;
+    color: #fff;
+    text-align: center;
+    vertical-align: middle;
+    user-select: none;
+    background-color: #007bff;
+    border: 1px solid #007bff;
+    padding: 0.375rem 0.75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    border-radius: 0.25rem;
+    transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+    text-decoration: none;
+}
+
+.btn:hover {
+    color: #fff;
+    background-color: #0056b3;
+    border-color: #004085;
+}
+
+
+.container {
+    display: flex;
+    justify-content: center;
+    padding-top: 20px;
+}
