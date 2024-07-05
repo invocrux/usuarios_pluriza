@@ -15,9 +15,11 @@ export class LoginComponent {
     usuario: new FormControl('', Validators.required),
     password: new FormControl('', Validators.required),
   });
-  constructor(public readonly api: ApiService, private router: Router) { }
+  constructor(private readonly api: ApiService, private router: Router) { }
 
   onLogin() {
-    this.router.navigate(["dashboard"]);
+    if (this.fbLogin.valid) {
+      this.router.navigate(["dashboard"]);
+    }
   }
 }

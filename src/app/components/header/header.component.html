@@ -5,8 +5,15 @@
       class="form-control"
       id="search-input"
       placeholder="Escribe tu búsqueda..."
+      #buscarUsuario
     />
-    <button class="btn btn-primary" id="search-button">Buscar</button>
+    <button
+      class="btn btn-primary"
+      id="search-button"
+      (click)="filtrarUsuarios(buscarUsuario.value)"
+    >
+      Buscar
+    </button>
   </div>
   <div id="results" class="results"></div>
 </div>

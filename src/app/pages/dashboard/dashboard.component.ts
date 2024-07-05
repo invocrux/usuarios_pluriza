@@ -14,7 +14,8 @@ import { CommonModule } from '@angular/common';
 })
 export class DashboardComponent implements OnInit {
   listaUsers: IResponse[] = [];
-  i: number;
+  listaUsersOrigin: IResponse[] = [];
+  i: number = 0;
   headeTb: string[] = ['ID', 'NOMBRE', 'EMAIL', 'DIRECCION', 'TELEFONO', 'NICK', 'WEBSITE'];
   constructor(private readonly api: ApiService) { }
 
@@ -24,10 +25,12 @@ export class DashboardComponent implements OnInit {
   }
 
   getUsuarios() {
+    this.listaUsers = [];
+    this.listaUsers = this.listaUsersOrigin
     this.api.login().subscribe({
       next: (value) => {
-        console.log(value);
         this.listaUsers.push(...value.sort());
+        this.listaUsersOrigin = [...this.listaUsers]
       },
       error: (err) => {
         console.log(err);
@@ -36,4 +39,11 @@ export class DashboardComponent implements OnInit {
     )
   }
 
+  usuarioFiltrado(usuario: IResponse[]) {
+    if (usuario.length > 0) {
+      this.listaUsers = usuario
+    } else {
+      this.listaUsers = this.listaUsersOrigin
+    }
+  }
 }
