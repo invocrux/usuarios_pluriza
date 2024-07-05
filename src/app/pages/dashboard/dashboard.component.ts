@@ -13,10 +13,12 @@ import { CommonModule } from '@angular/common';
   imports: [HeaderComponent, FooterComponent, CommonModule]
 })
 export class DashboardComponent implements OnInit {
+
   listaUsers: IResponse[] = [];
   listaUsersOrigin: IResponse[] = [];
   i: number = 0;
   headeTb: string[] = ['ID', 'NOMBRE', 'EMAIL', 'DIRECCION', 'TELEFONO', 'NICK', 'WEBSITE'];
+  ocultarTabla: boolean = false;
   constructor(private readonly api: ApiService) { }
 
 
@@ -39,7 +41,12 @@ export class DashboardComponent implements OnInit {
     )
   }
 
+  sinResultados(event: boolean) {
+    this.ocultarTabla = event;
+  }
+
   usuarioFiltrado(usuario: IResponse[]) {
+    this.ocultarTabla = false;
     if (usuario.length > 0) {
       this.listaUsers = usuario
     } else {

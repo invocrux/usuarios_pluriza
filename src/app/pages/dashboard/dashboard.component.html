@@ -1,9 +1,10 @@
 <app-header
   [listaUsuario]="listaUsers"
   (listaFiltrada)="usuarioFiltrado($event)"
+  (sinResultados)="sinResultados($event)"
 ></app-header>
 
-<div class="table-responsive">
+<div class="table-responsive" *ngIf="!ocultarTabla">
   <table class="table table-striped table-bordered table-hover table-sm">
     <thead>
       <tr>
@@ -24,7 +25,9 @@
   </table>
 </div>
 
-<div class="container">
+<div *ngIf="ocultarTabla" class="container">Sin Resultados</div>
+
+<div class="container" *ngIf="!ocultarTabla">
   <span (click)="getUsuarios()" class="btn">Ver más usuarios</span>
 </div>
 

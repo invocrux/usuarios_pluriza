@@ -1,19 +1,22 @@
-<div class="container">
-  <div class="search-container">
-    <input
-      type="text"
-      class="form-control"
-      id="search-input"
-      placeholder="Escribe tu búsqueda..."
-      #buscarUsuario
-    />
-    <button
-      class="btn btn-primary"
-      id="search-button"
-      (click)="filtrarUsuarios(buscarUsuario.value)"
-    >
-      Buscar
-    </button>
+<form [formGroup]="fbBuscar">
+  <div class="container">
+    <div class="search-container">
+      <input
+        type="text"
+        class="form-control"
+        id="search-input"
+        formControlName="buscar"
+        placeholder="Escribe tu búsqueda..."
+        #buscarUsuario
+      />
+      <button
+        class="btn btn-primary"
+        id="search-button"
+        (click)="filtrarUsuarios(buscarUsuario.value)"
+      >
+        Buscar
+      </button>
+    </div>
+    <div id="results" class="results"></div>
   </div>
-  <div id="results" class="results"></div>
-</div>
+</form>
